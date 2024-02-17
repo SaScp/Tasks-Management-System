@@ -7,6 +7,10 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 
+/**
+ * @Class: SecuritySpringConfiguration - class configuration a Tasks Management System
+ * @author Alexander
+ * */
 @Configuration
 @EnableWebSecurity
 public class SecuritySpringConfiguration {
