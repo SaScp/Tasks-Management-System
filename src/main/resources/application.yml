@@ -1,0 +1,13 @@
+spring:
+  sql:
+    init:
+      mode: always
+  jpa:
+    show-sql: true
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+    username: ${POSTGRES_USERNAME}
+    password: ${POSTGRES_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  config:
+    import: optional:file:.env[.properties]
