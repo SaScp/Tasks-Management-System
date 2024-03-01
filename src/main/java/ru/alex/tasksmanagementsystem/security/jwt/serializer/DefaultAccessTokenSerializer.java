@@ -1,4 +1,4 @@
-package ru.alex.tasksmanagementsystem.security.jwt.serialize;
+package ru.alex.tasksmanagementsystem.security.jwt.serializer;
 
 public class DefaultAccessTokenSerializer implements AccessTokenSerializer {
 }

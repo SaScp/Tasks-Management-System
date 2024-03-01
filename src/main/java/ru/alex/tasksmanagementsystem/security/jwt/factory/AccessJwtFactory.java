@@ -11,6 +11,11 @@ public class AccessJwtFactory implements AccessTokenFactory {
     private Instant now = Instant.now();
     private Duration duration = Duration.ofMinutes(30);
 
+    /**
+     * @param token - information from refresh token
+     * @return Token for generate JWT Token in Base64
+     * */
+
     @Override
     public Token apply(Token token) {
         return new Token(UUID.randomUUID().toString(), token.subject(),
