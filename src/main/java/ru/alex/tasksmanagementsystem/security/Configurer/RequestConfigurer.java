@@ -7,6 +7,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.web.authentication.AuthenticationFilter;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationProvider;
 import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.security.web.server.authentication.AuthenticationWebFilter;
@@ -19,6 +20,8 @@ import ru.alex.tasksmanagementsystem.security.jwt.deserializer.RefreshTokenDeser
 import ru.alex.tasksmanagementsystem.security.jwt.serializer.AccessTokenSerializer;
 import ru.alex.tasksmanagementsystem.security.jwt.serializer.RefreshTokenSerializer;
 
+/**@author Alexander
+ * @Class RequestConfigurer - configure class - class for setting AuthenticationFilter and more filter with providers */
 
 @Builder
 @AllArgsConstructor
@@ -46,9 +49,8 @@ public class RequestConfigurer extends AbstractHttpConfigurer<RequestConfigurer,
         PreAuthenticatedAuthenticationProvider authenticationProvider = new PreAuthenticatedAuthenticationProvider();
         authenticationProvider.setPreAuthenticatedUserDetailsService(new TokensAuthenticationUserDetailsService());
 
-
-
         builder.addFilterBefore(authenticationFilter, CsrfFilter.class)
-                .addFilterBefore(new DeniedFilter(), DisableEncodeUrlFilter.class);
+                .addFilterBefore(new DeniedFilter(), DisableEncodeUrlFilter.class)
+                .authenticationProvider(authenticationProvider);
     }
 }
