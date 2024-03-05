@@ -2,8 +2,10 @@ package ru.alex.tasksmanagementsystem.security.Configurer;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.web.authentication.AuthenticationFilter;
@@ -35,6 +37,7 @@ public class RequestConfigurer extends AbstractHttpConfigurer<RequestConfigurer,
 
     private final RefreshTokenDeserializer refreshTokenDeserializer;
 
+    private final AuthenticationProvider defaultDaoAuthenticationProvider;
 
     @Override
     public void init(HttpSecurity builder) throws Exception {
@@ -44,13 +47,19 @@ public class RequestConfigurer extends AbstractHttpConfigurer<RequestConfigurer,
     @Override
     public void configure(HttpSecurity builder) throws Exception {
         AuthenticationManager authenticationManager = builder.getSharedObject(AuthenticationManager.class);
-        AuthenticationFilter authenticationFilter = new AuthenticationFilter(authenticationManager, new JwtAuthenticationConverter(accessTokenDeserializer, refreshTokenDeserializer));
-        authenticationFilter.setFailureHandler(((request, response, exception) -> response.sendError(HttpStatus.FORBIDDEN.value())));
-        PreAuthenticatedAuthenticationProvider authenticationProvider = new PreAuthenticatedAuthenticationProvider();
-        authenticationProvider.setPreAuthenticatedUserDetailsService(new TokensAuthenticationUserDetailsService());
+        PreAuthenticatedAuthenticationProvider preAuthenticatedAuthenticationProvider = new PreAuthenticatedAuthenticationProvider();
+        preAuthenticatedAuthenticationProvider.setPreAuthenticatedUserDetailsService(new TokensAuthenticationUserDetailsService());
 
-        builder.addFilterBefore(authenticationFilter, CsrfFilter.class)
+        builder.addFilterBefore(getAuthenticationFilter(authenticationManager), CsrfFilter.class)
                 .addFilterBefore(new DeniedFilter(), DisableEncodeUrlFilter.class)
-                .authenticationProvider(authenticationProvider);
+                .authenticationProvider(preAuthenticatedAuthenticationProvider)
+                .authenticationProvider(this.defaultDaoAuthenticationProvider);
     }
+
+     private AuthenticationFilter getAuthenticationFilter(AuthenticationManager authenticationManager ) {
+         AuthenticationFilter authenticationFilter = new AuthenticationFilter(authenticationManager,
+                 new JwtAuthenticationConverter(accessTokenDeserializer, refreshTokenDeserializer));
+         authenticationFilter.setFailureHandler(((request, response, exception) -> response.sendError(HttpStatus.FORBIDDEN.value())));
+         return authenticationFilter;
+     }
 }

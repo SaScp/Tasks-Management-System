@@ -1,4 +1,8 @@
 package ru.alex.tasksmanagementsystem.security.jwt.serializer;
 
-public interface AccessTokenSerializer {
+import ru.alex.tasksmanagementsystem.model.Token;
+
+import java.util.function.Function;
+
+public interface AccessTokenSerializer extends Function<Token, String>  {
 }

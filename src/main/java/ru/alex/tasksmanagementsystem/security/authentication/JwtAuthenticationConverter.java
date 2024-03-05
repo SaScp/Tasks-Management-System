@@ -20,14 +20,16 @@ public class JwtAuthenticationConverter implements AuthenticationConverter {
     @Override
     public Authentication convert(HttpServletRequest request) {
 
-        String token = request.getHeader(HttpHeaders.AUTHORIZATION);
+        String authorizationToken = request.getHeader(HttpHeaders.AUTHORIZATION);
+        if (authorizationToken.startsWith("Bearer ")) {
+            if (true) {
 
-        if (true) {
+            }
+            if (true) {
 
+            }
         }
-        if (true) {
 
-        }
         return null;
     }
 }
