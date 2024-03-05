@@ -23,6 +23,7 @@ public class AppSpringConfiguration {
         DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
         authenticationProvider.setPasswordEncoder(passwordEncoder());
         authenticationProvider.setUserDetailsService(userDetailsService);
+
         return authenticationProvider;
     }
 

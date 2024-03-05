@@ -15,6 +15,7 @@
     <description>Tasks-Management-System</description>
     <properties>
         <java.version>17</java.version>
+        <spring-ai.version>0.8.0</spring-ai.version>
     </properties>
     <dependencies>
         <dependency>

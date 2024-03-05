@@ -1,0 +1,19 @@
+CREATE TABLE IF NOT EXISTS t_user(
+    user_id VARCHAR(255) PRIMARY KEY
+);
+CREATE TABLE IF NOT EXISTS t_task(
+    task_id VARCHAR(255) PRIMARY KEY
+);
+CREATE TABLE IF NOT EXISTS t_role(
+    role_id SERIAL PRIMARY KEY
+);
+CREATE TABLE IF NOT EXISTS t_logout(
+    token_id VARCHAR(255) PRIMARY KEY
+);
+CREATE TABLE IF NOT EXISTS t_role_t_user(
+
+)
+
+
+
+
