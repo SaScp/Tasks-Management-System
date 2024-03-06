@@ -22,8 +22,10 @@ import ru.alex.tasksmanagementsystem.security.jwt.deserializer.RefreshTokenDeser
 import ru.alex.tasksmanagementsystem.security.jwt.serializer.AccessTokenSerializer;
 import ru.alex.tasksmanagementsystem.security.jwt.serializer.RefreshTokenSerializer;
 
-/**@author Alexander
- * @Class RequestConfigurer - configure class - class for setting AuthenticationFilter and more filter with providers */
+/**
+ * @author Alexander
+ * @Class RequestConfigurer - configure class - class for setting AuthenticationFilter and more filter with providers
+ */
 
 @Builder
 @AllArgsConstructor
@@ -56,10 +58,10 @@ public class RequestConfigurer extends AbstractHttpConfigurer<RequestConfigurer,
                 .authenticationProvider(this.defaultDaoAuthenticationProvider);
     }
 
-     private AuthenticationFilter getAuthenticationFilter(AuthenticationManager authenticationManager ) {
-         AuthenticationFilter authenticationFilter = new AuthenticationFilter(authenticationManager,
-                 new JwtAuthenticationConverter(accessTokenDeserializer, refreshTokenDeserializer));
-         authenticationFilter.setFailureHandler(((request, response, exception) -> response.sendError(HttpStatus.FORBIDDEN.value())));
-         return authenticationFilter;
-     }
+    private AuthenticationFilter getAuthenticationFilter(AuthenticationManager authenticationManager) {
+        AuthenticationFilter authenticationFilter = new AuthenticationFilter(authenticationManager,
+                new JwtAuthenticationConverter(accessTokenDeserializer, refreshTokenDeserializer));
+        authenticationFilter.setFailureHandler(((request, response, exception) -> response.sendError(HttpStatus.FORBIDDEN.value())));
+        return authenticationFilter;
+    }
 }
