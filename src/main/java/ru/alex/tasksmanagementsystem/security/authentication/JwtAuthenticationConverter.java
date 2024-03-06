@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationConverter;
+import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
 import ru.alex.tasksmanagementsystem.model.Token;
 import ru.alex.tasksmanagementsystem.security.jwt.deserializer.AccessTokenDeserializer;
 import ru.alex.tasksmanagementsystem.security.jwt.deserializer.RefreshTokenDeserializer;
@@ -26,11 +27,11 @@ public class JwtAuthenticationConverter implements AuthenticationConverter {
             String serializerToken = authorizationToken.substring(7);
             Token token = accessTokenDeserializer.apply(serializerToken);
             if (token != null) {
-
+                return new PreAuthenticatedAuthenticationToken(serializerToken, token);
             }
             token = refreshTokenDeserializer.apply(serializerToken);
             if (token != null) {
-
+                return new PreAuthenticatedAuthenticationToken(serializerToken, token);
             }
         }
 
