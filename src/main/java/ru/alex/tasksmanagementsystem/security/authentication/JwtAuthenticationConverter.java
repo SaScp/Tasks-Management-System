@@ -23,7 +23,7 @@ public class JwtAuthenticationConverter implements AuthenticationConverter {
     public Authentication convert(HttpServletRequest request) {
 
         String authorizationToken = request.getHeader(HttpHeaders.AUTHORIZATION);
-        if (authorizationToken.startsWith("Bearer ")) {
+        if (authorizationToken != null && authorizationToken.startsWith("Bearer ")) {
             String serializerToken = authorizationToken.substring(7);
             Token token = accessTokenDeserializer.apply(serializerToken);
             if (token != null) {

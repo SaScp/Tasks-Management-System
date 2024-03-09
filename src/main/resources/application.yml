@@ -11,3 +11,6 @@ spring:
     driver-class-name: org.postgresql.Driver
   config:
     import: optional:file:.env[.properties]
+logging:
+  level:
+    org.springframework.security: trace

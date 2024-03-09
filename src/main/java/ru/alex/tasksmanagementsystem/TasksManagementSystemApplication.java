@@ -8,7 +8,6 @@ import ru.alex.tasksmanagementsystem.configuration.AppSpringConfiguration;
 
 
 @SpringBootApplication
-@Import({AppSpringConfiguration.class})
 @EnableJpaAuditing(auditorAwareRef = "auditDateAware")
 public class TasksManagementSystemApplication {
 
