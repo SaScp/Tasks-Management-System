@@ -65,7 +65,6 @@ public class RefreshFilter extends OncePerRequestFilter {
                     this.objectMapper.writeValue(response.getWriter(), new Tokens(accessTokenSerializer.apply(accessToken),
                             Date.from(accessToken.expireAt()), refreshTokenSerializer.apply(refreshToken), Date.from(refreshToken.expireAt())));
 
-                    response.setStatus(HttpStatus.NO_CONTENT.value());
                     return;
                 }
             }
