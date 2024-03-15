@@ -1,6 +1,6 @@
 package ru.alex.tasksmanagementsystem.service.impl;
 
-import ru.alex.tasksmanagementsystem.model.User;
+import ru.alex.tasksmanagementsystem.model.user.User;
 import ru.alex.tasksmanagementsystem.service.UserService;
 
 public class DefaultUserService implements UserService {

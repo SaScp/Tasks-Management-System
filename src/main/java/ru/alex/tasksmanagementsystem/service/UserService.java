@@ -1,6 +1,6 @@
 package ru.alex.tasksmanagementsystem.service;
 
-import ru.alex.tasksmanagementsystem.model.User;
+import ru.alex.tasksmanagementsystem.model.user.User;
 
 public interface UserService {
 

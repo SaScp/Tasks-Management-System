@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.AuthenticationUserDetailsSe
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
-import ru.alex.tasksmanagementsystem.model.Token;
+import ru.alex.tasksmanagementsystem.model.response.Token;
 
 /**
  * @author Alexander

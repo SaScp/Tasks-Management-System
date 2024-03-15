@@ -1,4 +1,4 @@
-package ru.alex.tasksmanagementsystem.model;
+package ru.alex.tasksmanagementsystem.model.response;
 
 import java.time.Instant;
 import java.util.List;

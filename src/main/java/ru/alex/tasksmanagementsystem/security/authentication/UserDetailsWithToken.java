@@ -2,7 +2,7 @@ package ru.alex.tasksmanagementsystem.security.authentication;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
-import ru.alex.tasksmanagementsystem.model.Token;
+import ru.alex.tasksmanagementsystem.model.response.Token;
 
 import java.util.Collection;
 

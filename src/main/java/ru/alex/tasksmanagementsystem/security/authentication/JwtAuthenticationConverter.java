@@ -6,7 +6,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationConverter;
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
-import ru.alex.tasksmanagementsystem.model.Token;
+import ru.alex.tasksmanagementsystem.model.response.Token;
 import ru.alex.tasksmanagementsystem.security.jwt.deserializer.AccessTokenDeserializer;
 import ru.alex.tasksmanagementsystem.security.jwt.deserializer.RefreshTokenDeserializer;
 

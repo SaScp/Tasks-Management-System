@@ -2,11 +2,10 @@ package ru.alex.tasksmanagementsystem.security.jwt.factory;
 
 import jakarta.annotation.Nullable;
 import org.springframework.security.core.Authentication;
-import ru.alex.tasksmanagementsystem.model.Token;
+import ru.alex.tasksmanagementsystem.model.response.Token;
 
 import java.time.Duration;
 import java.time.Instant;
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 

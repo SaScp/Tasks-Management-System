@@ -1,6 +1,6 @@
 package ru.alex.tasksmanagementsystem.security.jwt.serializer;
 
-import ru.alex.tasksmanagementsystem.model.Token;
+import ru.alex.tasksmanagementsystem.model.response.Token;
 
 public class DefaultAccessTokenSerializer implements AccessTokenSerializer {
     @Override

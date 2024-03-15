@@ -1,10 +1,9 @@
-package ru.alex.tasksmanagementsystem.model;
+package ru.alex.tasksmanagementsystem.model.user;
 
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Getter

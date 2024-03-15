@@ -1,8 +1,7 @@
 package ru.alex.tasksmanagementsystem.security.jwt.factory;
 
-import ru.alex.tasksmanagementsystem.model.Token;
+import ru.alex.tasksmanagementsystem.model.response.Token;
 
-import java.lang.reflect.Array;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.UUID;

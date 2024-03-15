@@ -1,7 +1,7 @@
 package ru.alex.tasksmanagementsystem.security.jwt.factory;
 
 import org.springframework.security.core.Authentication;
-import ru.alex.tasksmanagementsystem.model.Token;
+import ru.alex.tasksmanagementsystem.model.response.Token;
 
 import java.util.function.Function;
 
