@@ -1,15 +1,16 @@
 package ru.alex.tasksmanagementsystem.service;
 
+import org.springframework.security.core.Authentication;
 import ru.alex.tasksmanagementsystem.model.user.User;
 
 public interface UserService {
 
-    User save();
+    Authentication save();
 
     void update();
 
-    User findByAuthentication();
+    User findByAuthentication(Authentication authentication);
 
-    User findByEmail();
+    User findByEmail(String email);
 
 }

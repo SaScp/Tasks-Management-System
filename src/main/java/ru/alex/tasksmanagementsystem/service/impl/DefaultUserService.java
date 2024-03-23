@@ -1,11 +1,14 @@
 package ru.alex.tasksmanagementsystem.service.impl;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.stereotype.Service;
 import ru.alex.tasksmanagementsystem.model.user.User;
 import ru.alex.tasksmanagementsystem.service.UserService;
 
+@Service
 public class DefaultUserService implements UserService {
     @Override
-    public User save() {
+    public Authentication save() {
         return null;
     }
 
@@ -15,12 +18,12 @@ public class DefaultUserService implements UserService {
     }
 
     @Override
-    public User findByAuthentication() {
+    public User findByAuthentication(Authentication authentication) {
         return null;
     }
 
     @Override
-    public User findByEmail() {
+    public User findByEmail(String email) {
         return null;
     }
 }

@@ -2,6 +2,7 @@ package ru.alex.tasksmanagementsystem.security.jwt.factory;
 
 import jakarta.annotation.Nullable;
 import org.springframework.security.core.Authentication;
+import org.springframework.stereotype.Component;
 import ru.alex.tasksmanagementsystem.model.response.Token;
 
 import java.time.Duration;
@@ -12,6 +13,7 @@ import java.util.UUID;
 /**
  * @author Alexander
  * */
+@Component
 public class RefreshJwtFactory implements RefreshTokenFactory {
 
     private Instant now = Instant.now();

@@ -1,11 +1,13 @@
 package ru.alex.tasksmanagementsystem.security.jwt.factory;
 
+import org.springframework.stereotype.Component;
 import ru.alex.tasksmanagementsystem.model.response.Token;
 
 import java.time.Duration;
 import java.time.Instant;
 import java.util.UUID;
 
+@Component
 public class AccessJwtFactory implements AccessTokenFactory {
 
     private Instant now = Instant.now();
